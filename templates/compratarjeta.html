@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="static/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Suplementos GYM</title>
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="static/css/shop-homepage.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="static/css/simple-sidebar.css" rel="stylesheet">
+</head>
+
+<style>
+  .logotipo {
+    color: rgb(255, 255, 255);
+    font-family: 'Courgette', cursive;;
+  }
+</style>
+
+<body>
+  <!-- Barra de Navegación primaria -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height:5rem">
+    <img width="7%" src="static/captura.png">&nbsp;<h4 class="logotipo">CENTRO FITNESS</h4>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Inicio
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/entrenamientos">Entrenamientos personalizados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/dietas">Dietas</a>
+          </li>
+      </ul>
+    </div>
+  </nav>
+  <br>
+
+  <!-- Barra de Navegación secundaria, selectora de productos -->
+  <nav aria-label="breadcrumb style="width:3rem"">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><b>Suplementos alimenticios:</b></li>
+        <li class="breadcrumb-item"><a href="Proteinas">Proteinas</a></li>
+        <li class="breadcrumb-item"><a href="Aminoacidos">Aminoacidos</a></li>
+        <li class="breadcrumb-item"><a href="Ganadores">Ganadores</a></li>
+        <li class="breadcrumb-item"><a href="Accesorios">Accesorios de Gym</a></li>
+      <!--barra de busqueda de productos -->
+      &nbsp;&nbsp;&nbsp;&nbsp;
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="Producto" placeholder="Producto" aria-label="Producto">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
+     </ol>
+  </nav>
+
+
+
+  {% if no_data %}
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+    <strong>No se ha escrito nada.</strong> Por favor llena los espacios.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %}
+
+<form class="well form-horizontal" method="post">
+         <table class="table table-striped">
+            <tbody>
+               <tr>
+                  <td colspan="1">
+                        <fieldset>
+                        <h6><b>Datos de envio</b></h6>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Nombre Completo</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="nombrecompleto" name="nombrecompleto" placeholder="Nombres y apellidos" class="form-control" required="true" value="" type="nombrecompleto"></div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Dirección</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="direccion" name="direccion" placeholder="Colonia" class="form-control" required="true" value="" type="direccion"></div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Dirección Calle y número int. ext.</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="calle" name="calle" placeholder="Calle y número int. ext." class="form-control" required="true" value="" type="calle"></div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Ciudad</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="ciudad" name="ciudad" placeholder="Ciudad" class="form-control" required="true" value="" type="ciudad"></div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Estado</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="estado" name="estado" placeholder="Estado" class="form-control" required="true" value="" type="estado"></div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Código Postal</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="codigopostal" name="codigopostal" placeholder="Números" class="form-control" required="true" value="" type="codigopostal"></div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Email</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span><input id="email" name="email" placeholder="con símbolo @" class="form-control" required="true" value="" type="email"></div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Teléfono Celular ó Casa</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span><input id="tel" name="tel" placeholder="(Lada)7números" class="form-control" required="true" value="" type="tel"></div>
+                              </div>
+                           </div>
+                        </fieldset>
+                  </td>
+                  <td colspan="1">
+
+                        <fieldset>
+                          <h6><b>Forma de pago debito o crédito</b></h6>
+                          <div class="form-group">
+                               &nbsp;&nbsp;  <img class="d-block img-fluid" src="static/tarjetita.jpg" width="300px" height="200px">
+                             </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Número de Tarjeta</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input id="numerotarjeta" name="numerotarjeta" placeholder="16 números" class="form-control" required="true" value="" type="numerotarjeta"></div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Nombre y apellido</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="nombre2" name="nombre2" placeholder="Propietario de tarjeta" class="form-control" required="true" value="" type="nombre"></div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Fecha de expiración</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="fechaexpiracion" name="fechaexpiracion" placeholder="4 números" class="form-control" required="true" value="" type="fechaexpiracion"></div>
+                              </div>
+                           </div>
+                           <div class="form-group">
+                              <label class="col-md-4 control-label">Código de seguridad</label>
+                              <div class="col-md-8 inputGroupContainer">
+                                 <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><input id="codigoseguridad" name="codigoseguridad" placeholder="3 números" class="form-control" required="true" value="" type="codigoseguridad"></div>
+                              </div>
+                           </div>
+                           <button type="submit" class="btn btn-primary mx-auto">Siguiente</button>
+                        </form>
+                           </div>
+                        </fieldset>
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+
+
+  <!-- código para poner Footer parte de abajo de la página -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+  </footer>
+
+  <!-- Importaciones de Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
